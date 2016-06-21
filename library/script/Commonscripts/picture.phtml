@@ -1,0 +1,57 @@
+
+<?php 
+/**
+ * @param string $module Nazwa modu�u.
+ * @param string $controller Nazwa kontrollera.
+ * @param string $current nazwa obecnie wy�wietlanego obrazka.
+ * @param array $icons Nazwy ikon.
+ * @param int $id
+ */
+	$role = Zend_Auth::getInstance()->getStorage()->read()->getRole();
+
+
+	if  ( $role === 'admin' ) {
+ 	
+
+				
+						echo '<ul >';
+						
+						
+						foreach ($this->icons as $icon)	{
+					
+							
+								echo	'<li><a href="'.$this->baseUrl().'/public/images/things/'.$this->id.'/icons/'.$icon.'"><img src="'.$this->baseUrl().'/public/images/things/'.$this->id.'/icons/'.$icon.'" /></a></li>';
+						//echo '<li><a href="'.$this->baseUrl().'/public/images/things/'.$this->id.'/icons/'.$icon.'"><img src="'.$this->baseUrl().'/public/images/things/'.$this->id.'/icons/'.$icon.'" /></a></li>';
+						
+								echo '<a href="'. $this->baseUrl().'/'.$this->module.'/picture/delete/id/'.$this->id.'/pic/'. $icon .'">Usun</a><br/>';
+								
+								
+								if ($icon !=='main.jpg')
+							
+											echo '<a href="'.$this->baseUrl().'/'.$this->module.'/picture/setasmain/id/'.$this->id.'/pic/'. $icon .'">Ustaw jako etykiete</a><br/>';
+                                                                
+						
+						}
+						
+					
+						echo '</ul>';
+		
+		
+	} else {
+
+
+		echo '<ul class="thumb">';
+
+		
+		foreach ( $this->icons as $icon )	{
+	
+				echo '<li><a href="'.$this->baseUrl().'/public/images/things/'.$this->id.'/icons/'.$icon.'"><img src="'.$this->baseUrl().'/public/images/things/'.$this->id.'/icons/'.$icon.'" /></a></li>';
+		
+		}
+	
+	
+		echo '</ul>';
+
+	}
+ 
+ 

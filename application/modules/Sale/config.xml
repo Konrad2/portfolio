@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zend-config>
+
+	<contract>
+		<cart>sale</cart>
+	</contract>
+
+	<connections>
+		<orderStep1>things</orderStep1>
+		<orderStep1>courier</orderStep1>
+
+		<orderInsert>courier</orderInsert>
+	</connections>
+
+</zend-config>

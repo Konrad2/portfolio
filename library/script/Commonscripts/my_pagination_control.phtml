@@ -1,0 +1,50 @@
+
+<?php //if ($this->paginator != null){
+
+?>
+
+<ul id="pagination">
+
+	<li id="paginator-bck">
+            <?php 
+            
+                if ($this->previous == null){
+                    echo '<img class="arrow" src="'. $this->baseUrl().'/public/images/bck.jpg" alt="<-"></img>';
+                }else{
+            ?>
+	        <a href="<?php echo $this->url( array ('module'=> $this->route['module'],//$this->module,
+	      											'controller' => 'management',
+													 'action' => 'move',
+													 'page' => $this->previous)); ?>">
+	
+				<img class="arrow" src="<?php echo $this->baseUrl();?>/public/images/bck.jpg" alt="<-"></img>
+	        </a> 
+            <?php 
+                }
+            ?>
+	</li>
+	  
+	 <li id="paginator-for">
+	  
+             <?php
+             if ($this->next == null){
+                  echo '<img class="arrow" src="'. $this->baseUrl().'/public/images/for.jpg" alt="->"></img>';
+             }else{
+             ?>
+	        <a href="<?php echo $this->url( array ( 'module'=> $this->route['module'],
+													'controller' => 'management',										
+													 'action' => 'move',
+													    'page' => $this->next) ); ?>">
+	  
+	          <img class="arrow" src="<?php echo $this->baseUrl();?>/public/images/for.jpg" alt="->"></img>
+	  
+	        </a>
+               <?php
+             }
+               ?>
+	        	 
+	 </li>
+	  
+</ul>       
+  
+  <?php //}?>

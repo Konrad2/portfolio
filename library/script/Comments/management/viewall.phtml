@@ -1,0 +1,89 @@
+<div id="commentsToThings">
+<?php
+/**
+ * 
+ *@package View
+ *
+ *@param managermanagerContract nazwa kontrolera odpowiedzialnego za dodawanie,usuwanie i edycje. 
+ *
+ */
+
+
+echo  '<h4 class="title">'. $this->title.'</h4> <hr/>';
+
+	$role = Zend_Auth::getInstance()->getStorage()->read()->getRole();
+				
+	
+//	if ($role === 'admin') {
+		
+//		echo '<a style="float:right;margin-right:10px; text-decoration:none; color:#1E2F44;" href="'. $this->url( array ( 'module'=>$this->module  , 'controller' => $this->controler, 'action' => 'edit' ) ) . '">Edytuj</a>';
+//	echo '<a style="float:right;margin-right:10px; text-decoration:none; color:#1E2F44;" href="'. $this->url( array ( 'module'=>$this->module  , 'controller' => $this->controler, 'action' => 'delete' ) ) . '">Usuń</a>';	
+//	}
+		
+				echo '<a style="float:right;margin-right:10px; text-decoration:none; color:#1E2F44;" href="'. $this->url( array ( 'module'=>$this->module  , 'controller' => $this->controller, 'action' => 'add' ) ) . '">Dodaj komentarz</a>';
+	//}
+	
+	
+
+	 if ( count ( $this->paginator ) ): 
+ 
+		$t = $this->paginator->getItem(0,1);
+	
+	echo '<ul>';	
+
+	
+ 	foreach ($this->paginator as $item) :
+
+     echo '<li>';
+   	
+           
+          echo  '<div class="comments" >';
+   
+				
+        echo"<table>";
+        
+	
+			
+			 echo '<tr> <td>Autor: ' . $this->escape( $item [ 'name' ]) .'</td></tr> ';
+			 				
+		//	 echo '<tr> <td>Tytuł: ' . $this->escape( $item [ 'label' ]) .'</td></tr> ';
+			 
+			 echo '<tr> <td>Komentarz: <br/>' . $this->escape( $item [ 'description' ]) .'</td></tr> ';
+											
+	 	
+	 
+	 	echo"</table>";            
+	
+			
+				if ( $role == 'admin') {
+				
+				
+						echo ' <a style="color:blue; margin:10px 0 0 5px; text-decoration:none;" href="'. $this->url(array( 'module'=>$this->module,
+													'controller'=>$this->managerContract,
+													'action'=>'delete',
+													'id'=>$this->escape($item['id'])))					
+								.'">Usun</a>';
+								
+						
+				} else {
+
+					
+						echo "<br/>";
+						
+				}
+
+		 echo "</div>";
+		 
+
+	 
+	 echo"</li>";
+	 	 
+ 	endforeach;
+  
+	echo "</ul>";
+	
+ 
+ endif; 
+
+?>
+</div>

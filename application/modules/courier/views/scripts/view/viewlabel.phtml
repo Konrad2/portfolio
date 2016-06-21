@@ -1,0 +1,6 @@
+<?php 
+
+echo '<h3>'.$this->title.'</h3>';
+echo $this->row->courier_name; 
+echo '<a href="'. $this->url(array('module'=>$this->module, 'controller'=>'View', 'action'=>'changecourier','id'=>$this->row->id  )) .'">edytuj</a>';
+

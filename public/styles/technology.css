@@ -1,0 +1,132 @@
+@CHARSET "UTF-8";
+
+ .technology {
+	
+	width:500px;
+	background-color: #011121;
+	
+}
+
+ ul.technology{
+
+	text-align: center;
+ 	width: 100%; 
+ 	padding: 0;
+ 	margin: 20px 5px; 
+ 	list-style: none;  
+}
+
+ul.technology li {
+
+  	float: left; 
+	width: 557px;
+	padding: 0;
+	margin: 5px 10px;
+	display: inline; 
+}
+
+ .techData {	
+	
+	height: 130px;
+ 	font-size: 1em;
+	margin-right: 15px;
+	padding: 15px;
+	
+	padding-bottom:0;
+	
+	background-color: #011121;
+	
+	border-left-style:solid;
+	border-right-style:solid;
+	border-top-style:none;
+	border-bottom-style:none;
+
+	border-width:1px;
+	border-left-color:#24536F;
+	border-bottom-style: none;
+	border-right-color:#24536F; 
+	width: 481px;
+}
+
+.techData img {
+	
+	float:left;
+}
+
+.tresc a
+{
+	color:white;
+}
+
+.tresc h2 {
+	font-size: 1.8em;
+}
+.tresc img {
+	
+	padding: 5%;
+	background:#fff;
+	margin: 0 auto;
+	display: block;
+	-ms-interpolation-mode: bicubic; /*zapobiega pikselacji w IE6 i IE7, to znaczy, �e obraz nie b�dzie zbyt pikselowaty*/
+}
+
+
+
+.techflt
+{
+	background-image:url('../images/frame/tl.jpg');
+	width:7px;
+	height:7px;	
+	float:left;
+}
+.techflb
+{
+	background-image:url('../images/frame/bl.jpg');
+	width:7px;
+	height:7px;	
+	float:left;
+}
+.techfrt
+{
+	background-image:url('../images/frame/tr.jpg');
+	width:7px;
+	height:7px;
+	float:left;
+}
+.techfrb
+{
+	background-image:url('../images/frame/br.jpg');
+	width:7px;
+	height:7px;	
+	float:left;
+}
+
+.techft
+{
+	border-width:1px;
+	border-color: #24536F;	
+	border-bottom-style:none;	
+	border-left-style:none;
+	border-right-style:none;
+	border-top-style:solid;
+	background-color: #011121;
+	height:7px;
+	width:500px;
+	float:left;	
+}
+
+.techfb
+{	
+	
+	border-width:1px;
+	border-bottom-style:solid;
+	border-left-style:none;
+	border-right-style:none;
+	border-top-style:none;
+	background-color: #011121;
+	border-color: #525B6D;	
+	height:6px;
+	float:left;
+	width:500px;
+}
+ 

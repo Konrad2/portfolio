@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<zend-config>
+	<connections>
+		<cart>
+			basket
+   </cart>
+	</connections>
+
+	<component>
+	</component>
+	<cart>
+		<cartLabel>
+			<name>Nazwa Produktu</name>
+			<price>Cena</price>
+		</cartLabel>
+		<cartView>
+			<NazwaProduktu>name</NazwaProduktu>
+			<Kod>code</Kod>
+			<Cena>price</Cena>
+		</cartView>
+	</cart>
+</zend-config>

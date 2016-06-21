@@ -1,0 +1,6 @@
+<?php 
+echo '<h3>'.$this->title.'</h3>';
+echo '<p>'. $this->row->name.' '. $this->row->surname .'<p>';
+echo '<p> tel. '.  $this->row->phone .'</p>'; 
+echo '<p> email: '.  $this->row->email .'</p>'; 
+echo '<a href="'. $this->url(array('module'=>$this->module, 'controller'=>$this->controller, 'action'=>'edit','id'=>$this->row->id  )) .'">edytuj</a>';

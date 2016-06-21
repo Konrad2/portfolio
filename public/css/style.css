@@ -1,0 +1,218 @@
+@CHARSET "UTF-8";
+
+body{
+
+	background: #d2d6dc url('/public/images/bacground.jpg') repeat-x fixed Top;
+	color:#51667b;
+	/*font-family: sans-serif, serif, monospace;*/
+}
+
+#contener{
+	width: 100%;
+	min-width: 940px;
+}
+
+table {
+	width:100%;
+	padding: 10px;
+}
+
+li{
+	list-style: none;
+}
+
+#sigmaNapis{
+	
+	float:left;
+	background-image: url('/public/images/SigmaNapis.png') ;
+	background-repeat:no-repeat;
+	width: 400px;
+	height: 36px;
+}
+.inner{
+	margin: 0 auto;
+    width: 940px;
+}
+
+.blok_daneKontaktowe{
+	margin-Left:200px;
+	background-image: url('/public/images/daneKontaktowe.png') ;
+	background-repeat:no-repeat;
+	width: 300px;
+	height: 50px;
+	float:left
+	
+}
+
+.menuCms{
+	background-color:white;
+	 text-shadow: 5px 5px 5px grey;
+	 width:920px;
+
+	margin-bottom:40px;
+	
+}
+
+.menuCms li{
+	margin:0 10px 0 10px;
+	
+	display: block;
+	float:left;
+	list-style: none;
+	white-space: nowrap;	
+	font-family:Trebuchet MS;
+	font-weight:bold;
+
+     
+}
+
+ul.menuCms a{
+	color:#51667b;
+	text-decoration: none;
+}
+
+ul.menuCms a:hover {
+
+	background-color: #B8DBF9;
+	/*border:solid 5px white;*/
+
+}
+
+
+#baner{
+	width:938px;
+	height:247px;
+	/*margin:20px auto;*/
+	background-image: url('/public/images/ludzie.jpg') ;
+}
+
+.czysc{
+	clear:both;
+}
+
+#tresc{
+	background-color:white;
+	width: 938px;
+	margin:auto;
+	
+}
+
+#nawigacja{
+	display: inline;
+	
+}
+
+.dane {
+	width:220px;
+	float:left;
+	text-align:justify;
+	padding: 10px;
+}
+
+.dane ul{
+	width:220px;
+ margin:auto;
+}
+
+#audity{
+	background-image: url('/public/images/audity.jpg') ;
+	width: 240px;
+	height: 104px;
+}
+
+#outsorcing{
+	
+	background-image: url('/public/images/outsorcing.jpg') ;
+	width: 218px;
+	height: 104px;
+}
+
+ul{
+	margin:0;
+	padding:10px;
+}
+
+
+#wdrarzamy{
+width: 180px;
+}
+
+
+
+#wdrażamyWiecej{
+	padding-top:120px;
+	list-style: none;
+}
+
+#wizytowka{
+	padding-top:150px;
+	background: white url('/public/images/wizytowka.jpg') no-repeat Top;
+	width: 219px;
+	height: 106px;
+}
+
+.tekstWNawigacji{
+	height: 350px;
+	width: 220px;
+	margin: auto;
+	
+}
+
+.wiecej{
+	width: 72px;
+	margin:auto;
+	
+}
+
+/*
+#pani{
+	
+	width: 150px;
+	height: 120px;
+	list-style: none;
+		 margin-left: 0px;
+}
+*/
+
+
+.listaZielona{
+	padding-top:150px;
+	background: white url('/public/images/pani.jpg') no-repeat Top;
+	width: 152px;
+	min-height: 263px;
+	
+}
+
+.listaZielona li{
+	
+	 list-style-image: url('/public/images/zielonyPunkt.jpg');
+	 margin-left: 20px;
+}
+
+.zawartosc{
+	
+	margin: 20px;
+}
+
+#wysylanieWiadomosci{
+	float:right;
+	width: 400px;
+	margin: 40px;
+}
+
+#wysylanieWiadomosci textarea{
+	background-color:#D6D6D6;
+	width:350px;
+	height:250px;
+}
+
+#wysylanieWiadomosci input{
+	background-color:#D6D6D6;
+}
+
+#kontakt{
+	width: 300px;
+	float:left;
+		margin: 40px;
+}
+

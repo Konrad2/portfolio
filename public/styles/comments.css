@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+
+.comments {
+	
+	clear:both;	
+	color:grey;	
+	margin:auto;
+	
+}
+
+#commentsToThings {
+	
+	clear: both;
+}
+
+#commentsToThings hr{
+	
+		border: 1px solid #24536F;
+}
+
+#commentsToThings h4{
+	
+}

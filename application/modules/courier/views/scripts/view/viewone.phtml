@@ -1,0 +1,16 @@
+﻿
+<h2> <?php echo $this->thing->courier_name; ?></h2>
+<?php
+
+
+ //Wyświetlanie wiersza
+ 
+	echo '<p>Cena przesyłki: '.$this->thing->package_price.'zł</p>';
+
+
+//Wyświetlanie połączonych modułów
+	if (!empty($this->mod))
+		foreach($this->mod as $m){
+			echo $this->action('viewlabel', 'view',	$m,	array('id' => $this->id) );		
+		}
+	

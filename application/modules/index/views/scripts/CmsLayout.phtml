@@ -1,0 +1,156 @@
+<?php echo $this->doctype(); ?>
+
+<html  lang="pl">
+
+<head>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headLink(); ?>
+    <?php echo $this->headStyle(); ?>
+    <?php echo $this->headScript(); ?>
+   
+         
+</head>
+
+<body>
+
+
+  
+  
+ 
+ 
+<div id="contener" >
+
+
+<div id="baner"></div>
+
+<?php
+
+	$role = Zend_Auth::getInstance()->getStorage()->read()->getRole();
+				
+	if ($role === 'admin') {
+
+			echo '<a style="color:#263751;" href="'. $this->url( array ('module'=>'Log', 'controller'=>'log', 'action'=>'out')) . '">Wyloguj</a>';
+		//	echo '<a style="color:#263751;" href="'. $this->url( array ('module'=>'Log', 'controller'=>'View', 'action'=>'viewone','id'=>Zend_Auth::getInstance()->getStorage()->read()->getId() )  ) . '">Konto</a>';
+			
+	}
+	
+?>
+  <div id="Menu">
+	
+				  
+			 	<div class="flt"></div>
+				
+				<div class="menuft"></div>
+				
+				<div class="frt"></div>
+			
+			<?php
+			
+			
+			$menu = new Zend_Navigation_Page_Mvc();
+			
+			$menu->addPage( new Zend_Navigation_Page_Mvc( array(  'label' =>'O firmie', 'module' => 'index' , 'controller'=> 'index', 'action'=>'about') ) );
+				
+			$menu->addPage(	 new Zend_Navigation_Page_Mvc( array(  'label' =>'Oferta', 'module' => 'index' , 'controller'=> 'index', 'action'=>'new') ) );
+				
+			$menu->addPage(	 new Zend_Navigation_Page_Mvc( array(  'label' =>'Wykonane budynki', 'module' => 'things' , 'controller'=> 'management', 'action'=>'viewall') ) );				
+				
+			$menu->addPage( new Zend_Navigation_Page_Mvc( array(  'label' => 'Technologie', 'module' => 'technology', 'controller'=>'management', 'action'=>'viewall' ) ) );
+				
+			$menu->addPage( new Zend_Navigation_Page_Mvc( array(  'label' =>'Kontakt','module' => 'index' , 'controller'=> 'index', 'action'=>'contact') ) );
+			
+			
+			echo 	$this->navigation()->menu()->RenderMenu( $menu) ;?>
+			
+			 <div class="flb"></div>
+				 
+				<div class="menufb"></div>
+				
+				<div class="frb"></div>
+			
+			<div id="rury"> </div>
+	
+				
+	</div>
+  
+  
+	<div id="ContentCms" >	
+	
+		
+		
+		<?php
+		foreach ($this->message as $m) {
+			
+			echo '<div id="message">'.$m.'</div>';
+		}
+
+		echo $this->layout()->contentt;		 
+					
+	//	echo  $this->placeholder('menu');
+		?>
+
+
+	</div>
+
+<div id="rightside">
+
+
+
+	<div class="flt"></div>
+					
+	<div class="rightft"></div>
+					
+	<div class="frt"></div>
+	
+	<div id="rightContener">
+	
+		<div id="rightText" >		
+			<b>Firma Budowlana Lasota</b>  zajmuje się  konstrukcją domów szkieletowych, belki dwuteowej. Są to nowoczesne energooszczędne domy. Wykorzystywane technologie : rekuperator, belka dwuteowa Steico, folia węglowa grzewcza, karbonowe.		
+		</div>
+		
+<div id="rightSidePict"></div>
+
+
+
+	</div>
+	
+			<div class="flb"></div>
+					 
+			<div class="rightfb"></div>
+					
+			<div class="frb"></div>
+			
+				
+				<div id="rury"> </div>
+					
+</div>
+
+<div >
+		<?php 		
+
+		if ( $this->paginator )
+		echo $this->paginationControl($this->paginator,
+		
+		                                    'Jumping',
+		
+		                                    'my_pagination_control.phtml',  array("route" => array("module" => $this->module, "controller" => $this->controller, ) ) );
+		?> 
+	</div>
+	
+	
+ 	<div id="footer">
+        
+        	<a style="color:white; float:right; color:#9CA9B2; " href="http://www.nysart.pl"> <img style="border-style:none;" src="<?php echo $this->BaseUrl()?>/public/images/logoNA.jpg" alt="Nysart Logo" />NYSART  Systemy Dedykowane</a>        		
+    </div>
+
+
+</div>
+
+
+
+   </body>   
+   
+</html>

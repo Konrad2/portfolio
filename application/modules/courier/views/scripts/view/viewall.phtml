@@ -1,0 +1,36 @@
+<?php
+
+if ( isset($this->message) )
+{	
+	foreach ($this->message as $message)
+	echo '<div id="message">'. $message .'</div>';
+}
+	
+ if (count($this->paginator)): 
+ 
+ echo "<table>";
+ 
+		echo '<th>Nazwa</th>'; 
+
+ foreach ($this->paginator as $item): 
+ 
+	echo"<tr>";
+	
+	//foreach ($keys as $k)
+		//echo '<td>'.$this->escape($item[$k]).'</td>';
+	echo '<td>'.$this->escape($item['courier_name']).'</td>';
+	
+	echo '<td><a href="'. $this->url(array( 'controller'=>$this->escape($this->controller),
+											'action'=>$this->escape($this->action),
+											'id'=>$this->escape($item['id'])))					
+						.'">szczeguly</a></td>';
+
+	
+	
+		
+echo"</tr>";		
+  endforeach;
+echo "</table>"; 
+
+endif; 
+

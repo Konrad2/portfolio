@@ -1,0 +1,36 @@
+<table>
+	<?php
+
+	 if (count($this->paginator)):
+	  
+		$t = $this->paginator->getItem(0,1);
+		
+		$keys = array_keys($t);
+		foreach ($keys as $k)
+			echo '<th>'.$k.'</th>'; 
+		
+	 foreach ($this->paginator as $item): 
+	 
+		echo"<tr>";
+		
+		foreach ($keys as $k)
+			echo '<td>'.$this->escape($item[$k]).'</td>';
+		
+			
+	//echo '<td><a href="'. $this->url(array('controller'=> $this->_request->getControllerName() ,'action'=>$this->escape($this->action),'id'=>$this->escape($item['nr. Zamuwienia']))) .'">Szczeguły</a></td>';
+	
+	//echo '<td><a href="'. $this->url(array('controller'=>$this->escape($this->controler),'action'=>'one2','id'=>$this->escape($item['nr. Zamuwienia']))) .'">Szczeguły</a></td>';
+	echo '<td><a href="'. $this->url(array('controller'=>$this->escape($this->controler),'action'=>'viewone','id'=>$this->escape($item['nr. Zamuwienia']))) .'">Szczeguły</a></td>';
+	
+		//echo '<td><a href="'. $this->url(array('controller'=>$this->escape($this->controler),'action'=>'delete','id'=>$this->escape($item['nr. Zamuwienia']))) .'">Usun</a></td>';
+		
+		echo"</tr>";
+		
+	endforeach;
+	
+	echo "</table>";
+	 
+	endif;
+
+	?>
+</table>

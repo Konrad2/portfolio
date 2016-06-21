@@ -1,0 +1,101 @@
+      <!--
+      See http://developer.yahoo.com/ypatterns/pattern.php?pattern=itempagination
+ �
+      -->
+
+
+      <?php if ($this->pageCount): ?>
+
+      <div class="paginationControl">
+
+      <?php echo $this->firstItemNumber; ?> - <?php echo $this->lastItemNumber; ?>
+
+      z <?php echo $this->totalItemCount; ?>
+
+       
+
+      <!-- First page link -->
+
+      <?php if (isset($this->previous)): ?>
+
+        <a href="<?php echo $this->url(array(
+												'controller' => 'View',
+												 'action' => 'move',
+												 'page' => $this->first)); ?>">
+
+          Pierwsza
+
+        </a> |
+
+      <?php else: ?>
+
+        <span class="disabled">Pierwsza</span> |
+
+      <?php endif; ?>
+
+       
+
+      <!-- Previous page link -->
+
+     <?php if (isset($this->previous)): ?>
+
+        <a href="<?php echo $this->url(array('controller' => 'View',
+												 'action' => 'move',
+												 'page' => $this->previous)); ?>">
+
+          &lt; Poprzedni
+
+        </a> |
+
+      <?php else: ?>
+
+      <span class="disabled">&lt; Poprzedni</span> |
+  
+      <?php endif; ?>
+  
+       
+  
+      <!-- Next page link -->
+  
+      <?php if (isset($this->next)): ?>
+  
+        <a href="<?php echo $this->url(array(
+												'controller' => 'View',
+												 'action' => 'move',
+												     'page' => $this->next)); ?>">
+  
+          Następny &gt;
+  
+        </a> |
+  
+      <?php else: ?>
+  
+        <span class="disabled">Następny &gt;</span> |
+  
+      <?php endif; ?>
+  
+       
+  
+      <!-- Last page link -->
+  
+      <?php if (isset($this->next)): ?>
+  
+        <a href="<?php echo $this->url(array('controller' => 'View',
+												 'action' => 'move',
+												 'page' => $this->last)); ?>">
+  
+          Ostatni
+  
+        </a>
+  
+      <?php else: ?>
+  
+        <span class="disabled">Ostatni</span>
+  
+      <?php endif; ?>
+  
+       
+  
+      </div>
+  
+      <?php endif; ?>

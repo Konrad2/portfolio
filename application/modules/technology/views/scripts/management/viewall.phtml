@@ -1,0 +1,134 @@
+<?php
+/**
+ * 
+ *@package View
+ *
+ *@param managermanagerContract nazwa kontrolera odpowiedzialnego za dodawanie,usuwanie i edycje. 
+ *
+ */
+
+	$role = Zend_Auth::getInstance()->getStorage()->read()->getRole();
+				
+	
+
+	 if ( count ( $this->paginator ) ) : 
+	 
+ 
+			$t = $this->paginator->getItem(0,1);
+	
+			echo '<ul class="technology">';	
+
+	
+ 			foreach ($this->paginator as $item) :
+
+ 
+			     echo '<li>';
+			     
+			     ?>
+			     
+			 	<div class="techflt"></div>
+				
+				<div class="techft"></div>
+				
+				<div class="techfrt"></div>
+				
+				
+			 <?php 
+			     
+			          //echo  '<div class="tresc" id="'. $item['id'] .'">';
+			          echo  '<div class="techData">';
+			          
+			          echo '<div style="color:#5BDDBD; float:left;"> >> &nbsp </div>';
+			echo '<div style="color:white; text-align:left; float:left;">Nazwa technologii: &nbsp</div>';
+			          echo "<h5>Dioda Led Max</h5>";
+			          
+			          
+			          echo '<div style="color:white; float:right;" > &nbsp Zobacz więcej</div>';
+			          echo '<div style="color:#5BDDBD; float:right;"> >> </div>';
+			          
+			          
+			          
+			          echo "<hr/>";
+			          //echo '<a onMouseOut="pictDest(' . $item ['id'] . ')" onMouseOver="pictShow('.$item ['id'].');" class="preview" href="'. $this->url( array( 'module'=>$this->module,
+			          echo '<a class="preview" href="'. $this->url( array( 'module'=>$this->module,
+																'controller'=>$this->escape($this->controler),
+																'action'=>$this->escape($this->action),
+																'id'=>$this->escape( $item['id'] ) ) )
+			          					
+												
+											//.'"><img onclick="pictShow(3);" onmouseenter="pictShow('. $item ['id'] .')" src="'. $this->icons[$item ['id']].'" alt="obraz produktu"/></a>';	
+											.'"><img   src="'. $this->icons[$item ['id']].'" alt="obraz produktu"/></a>';	
+											
+			        echo"<table>";
+			        
+					foreach ( $this->keysAndLabels as $key => $label ) {
+			
+						
+						
+						 echo '<tr> <td><a class="preview" href="'. $this->url( array( 'module'=>$this->module,
+						 
+																'controller'=>$this->escape($this->controller),
+						 
+																'action'=>$this->escape($this->action),
+						 
+																'id'=>$this->escape($item['id'] ) ) )
+			          					
+											.'">'.$this->escape($item [ $label ]).'</a></td></tr> ';				
+											//.'">'.$key.'</a></tr> </td>';				
+				 	}
+				 
+				 	echo"</table>";      	
+			            
+				
+							if ( Zend_Auth::getInstance()->getStorage()->read()->getRole() === 'admin') {
+							
+									
+								//echo '<div class="button">';
+									  
+											echo '<a style="color:white; margin:10px 0 0 5px; text-decoration:none;"href="'. $this->url(array(  'module'=>$this->module ,
+																		'controller'=>$this->managerContract,
+																		'action'=>'edit',
+																		'id'=>$this->escape($item['id'])))					
+											.'">Edytuj</a>';
+											
+								//	echo '</div>';
+					
+								//	  echo '<div class="button">';
+									echo ' <a style="color:white; margin:10px 0 0 5px; text-decoration:none;" href="'. $this->url(array( 'module'=>$this->module,
+																'controller'=>$this->managerContract,
+																'action'=>'delete',
+																'id'=>$this->escape($item['id'])))					
+											.'">Usun</a>';
+											
+									//	echo '</div>';	
+							} else {
+			
+								
+									echo "<br/>";
+									
+							}
+			
+					 echo "</div>";
+					 
+					 	 
+				 ?>
+				 <div class="techflb"></div>
+				 
+				<div class="techfb"></div>
+				
+				<div class="techfrb"></div>
+				
+				 <?php 
+				 
+				 echo"</li>";
+				 	 
+			  	endforeach;
+			  
+				echo "</ul>";
+				
+ 				
+			
+ endif; 
+ 
+ 
+?>

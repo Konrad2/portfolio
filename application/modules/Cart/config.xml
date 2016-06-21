@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<zend-config>
+	<contract>
+		<cart>sale</cart>
+	</contract>
+</zend-config>

@@ -1,0 +1,45 @@
+
+<div class="columnContent">
+
+<?php
+
+if (   count( $this->entites ) > 0 ) {
+
+
+	
+	
+		echo '<ul class="column">';
+				
+		echo '<a href="/Category/Management/clear">wszystkie</a>';
+		
+		foreach ( $this->entites as $item ) {
+			
+	
+				echo '<li><a href="'.  
+				
+								$this->url(
+											 array( 'module' => $this->module,
+			 
+													'controller' => $this->escape($this->controller),
+			 
+													'action' => 'addparam',
+											 
+													'param' => $item['id']
+											 ) 
+								)
+								
+						.'">'							
+						
+				
+						. $item['name']
+						
+						. '</a></li>';
+		}
+		
+		
+		echo '</ul>';
+	
+}
+?>
+
+</div>

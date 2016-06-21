@@ -1,0 +1,150 @@
+<?php echo $this->doctype(); ?>
+
+<html  lang="pl">
+
+<head>
+
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   
+    <?php echo $this->headTitle(); ?>
+    <?php echo $this->headLink(); ?>
+    <?php echo $this->headStyle(); ?>
+    <?php echo $this->headScript(); ?>
+   
+         
+</head>
+
+<body>
+
+ 
+<div id="contener" >
+
+<div id="baner"></div>
+
+<?php
+
+        $sorage = Zend_Auth::getInstance()->getStorage()->read();
+	$role = Zend_Auth::getInstance()->getStorage()->read()->getRole();
+	if ($role == 'member'){
+            echo 'Jesteś zalogowany jako '. $sorage->getAuthObj()->login;
+            echo '<a href="'. $this->url (array ('module'=>'Log', 'controller'=>'log', 'action'=>'out')) .'" >Wyloguj</a>';
+        }
+      // var_dump( );
+	if ($role === 'admin') {
+
+			//echo '<a style="color:#263751;" href="'. $this->url( array () . '">Wyloguj</a>';
+			
+		echo '<div id="menuAdmin">';
+		
+			echo '<div id="menuAdmin_begin"></div>';
+			
+			
+			$menuA =  Zend_Registry::get('menuAdmin');
+			
+
+			$menuA->addPage( new Zend_Navigation_Page_Mvc( array(  'label' => 'Wyloguj','module'=>'Log', 'controller' => 'log', 'action' => 'out') ) );
+			
+			$this->navigation()->setAcl( Class_myAcl::getInstance() );
+			
+			
+			$this->navigation()->setRole( $role );			
+					
+			echo 	$this->navigation()->menu()->RenderMenu( $menuA, array( 'ulClass' => 'menuAdmin' )) ;
+			
+			
+			echo '<div id="menuAdmin_end"></div>';
+			
+		echo '</div>';
+	}
+	
+?>
+
+
+<div id="left" >	
+				  
+			 	
+    <div class="round-corners-container border-style" style="overflow: hidden;">
+			<?php
+			
+		
+			$menu =  Zend_Registry::get('menu') ;			
+			$this->navigation()->setAcl( Class_myAcl::getInstance() );			
+			$this->navigation()->setRole( $role );			
+			echo $this->navigation()->menu()->RenderMenu( $menu) ;
+			?>
+			
+    </div>		
+     						
+                           
+						<?php 
+						
+						$left = Zend_Registry::get('leftSide');
+						
+						
+						foreach ($left->toArray() as $action ){
+														
+							echo ' <div class="round-corners-container border-style box" style="overflow: hidden;">  ';
+								echo $action['label'];
+							
+								echo $this->action ( $action['action'], $action['controller'], $action['module'] );
+                                                                echo '</div>';
+						}
+								
+						?>
+			
+ 	 </div>
+  
+  
+	<div id="ContentCms" >
+		
+		
+		<?php
+		
+		echo '<div id="actionMenu">';
+	
+		echo $this->navigation()->menu()->RenderMenu( $this->actionMenu, array('ulClass'=> 'actionMenu') );
+	
+			
+	echo '</div>';
+	
+			foreach ($this->message as $m) {
+				
+				echo '<div id="message">'.$m.'</div>';
+			}
+	
+			echo $this->layout()->contentt;		 
+					
+	//	echo  $this->placeholder('menu');
+	
+
+		if ( $this->paginator )
+		
+		echo $this->paginationControl($this->paginator,
+		
+		                                    'Jumping',
+		
+		                                    'my_pagination_control.phtml',  array("route" => array("module" => $this->module, "controller" => $this->controller, ) ) );
+		?> 
+
+	</div>
+
+
+
+
+<div >
+		
+		
+	</div>
+	
+	
+ 	<div id="footer">
+        
+        	<a style="color:white; float:right; color:#9CA9B2; " href="http://www.nysart.pl"> <img style="border-style:none;" src="<?php echo $this->BaseUrl()?>/public/images/logoNA.jpg" alt="Nysart Logo" />NYSART  Systemy Dedykowane</a>        		
+    </div>
+
+
+</div>
+
+   </body>   
+   
+</html>

@@ -1,0 +1,23 @@
+<div id="order">
+    <h3>Realizacja zamuwienia</h3>
+<?php
+//odwoanie si� do modu�w powizanych np. za� konto, zaloguj, 
+foreach($this->contract as $mod)
+{
+	//$this->actionHelper($mod,'View','viewlabel');
+}
+?>
+
+    <ul>
+        <li><a href="<?php echo $this->url(array('module'=>'Sale','controller'=>'Transaction','action'=>'step1')); ?>">Ekspresowa zamówienie</a></li>
+        <li><a href="<?php echo $this->url(array('module'=>'Log','controller'=>'log','action'=>'log')); ?>">Posiadam konto</a></li>
+        <li><a href="<?php echo $this->url(array('module'=>'accounts','controller'=>'Addandedit','action'=>'registration')); ?>">Rejestracja</a></li>
+    </ul>
+<?php /*
+ *   <a href="<?php echo $this->url(array('controller'=>'Transaction','action'=>'step1')); ?>">Ekspresowa zamówienie</a>  -->
+ */
+?>
+
+
+
+</div>

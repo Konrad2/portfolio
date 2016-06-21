@@ -1,0 +1,69 @@
+<?php
+
+		
+		
+//Wy��wietlanie po��sz�czonych modu��w
+	if (!empty($this->mod))
+		foreach($this->mod as $m)
+		{	
+		//	echo "view one jestem</br>";
+			echo $this->action('viewlabel', 
+								'view',
+								$m,
+								array('param' => $this->id) );
+		}
+
+		
+		
+		if ( $this->whatShow === null ){
+			//jeli nie zdefiniowano co wywietli
+		
+ //WyŶwietlanie wiersza
+ 
+		
+				echo "<table>";
+				 
+				  	$t = $this->thing->toArray();
+				
+				  	foreach ($t as $key => $item): 
+				 
+				  	//if ($key != 'id'){
+				  		  	
+						echo"<tr>";	
+							echo '<td>'. $key .'</td>';
+							$out =  empty($item) ? 'b.d':$item; 
+							echo '<td>'.$this->escape($out).'</td>';
+						echo"</tr>";
+				  //	}
+				  	
+				   endforeach;
+				   
+				echo "</table>"; 
+	
+		} else {
+			
+									
+			echo "<table>";
+				 
+				  	//$t = $this->thing->toArray();
+				
+				  	foreach ($this->whatShow as $what => $as): 
+				 
+				  	//if ($key != 'id'){
+				  		  	
+						echo"<tr>";	
+							echo '<td>'. $as .'</td>';
+							//$out =  empty( $this->thing[ $what ] ) ? 'b.d':$item; 
+							echo '<td>'.$this->escape( $this->thing[ $what ] ).'</td>';
+						echo"</tr>";
+				  //	}
+				  	
+				   endforeach;
+				   
+				echo "</table>"; 
+			
+		}
+		
+		
+?>
+ 

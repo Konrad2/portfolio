@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+
+
+#pict{
+	
+	
+	
+	
+	  position: relative;
+	   z-index: 5;
+
+	   top:-200px;
+	 
+
+}
+
+.preview{
+	font-family :time-new-roman;
+	color:#BCFFFF;
+	text-decoration: none;
+	text-align:justify ;	
+}
+
+
+#descriptionView{
+/* width: 250px;
+ float:right;
+height: 200px;	
+	*/
+	
+	
+text-align:justify ;
+ margin: 25px;
+ 
+ background-color: #011524;
+}
+
+#description{
+	
+ width: 250px;
+ margin-right: 5px;
+ height: 200px;
+ background-color: #9FABB5;
+}
+
+input{
+	 background-color: #9FABB5;
+	
+}
+
+ ul.kolumna {
+
+	text-align: center;
+ 	width: 100%; 
+ 	padding: 5px 25px 0;
+ 	margin: 20px 5px; 
+ 	list-style: none;  
+ 	background-repeat: no-repeat;
+}
+
+ul.kolumna li {
+
+  	float: left; 
+	width: 157px;
+	padding: 0;
+	margin: 5px 10px;
+	display: inline; 
+        height:300px;
+}
+
+.tresc {
+	
+	font-family: 'Times New Roman';
+	color:white;
+	height: 115px;
+ 	font-size: 1em;
+	margin-right: 15px;
+	padding: 15px;
+	
+	padding-bottom:0;
+	
+	background-color: #011524;
+	
+	border-left-style:solid;
+	border-right-style:solid;
+	border-top-style:none;
+	border-bottom-style:none;
+
+	border-width:1px;
+	border-left-color:#24536F;
+	border-bottom-style: none;
+	border-right-color:#24536F; 
+	width: 112px;
+}
+
+
+.tresc a {
+	
+	/*color:white;*/
+}
+
+
+.tresc h2 {
+	font-size: 1.8em;
+}
+
+
+.tresc img {
+	width: 80%;
+	padding: 5%;
+	background:#fff;
+	margin: 0 auto;
+	display: block;
+	border-style:none;
+	-ms-interpolation-mode: bicubic; /*zapobiega pikselacji w IE6 i IE7, to znaczy, �e obraz nie b�dzie zbyt pikselowaty*/
+}

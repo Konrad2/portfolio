@@ -1,0 +1,41 @@
+<table>
+<?php
+	
+
+  $t = $this->order->toArray();
+  
+ 
+  
+  if ($t !== null ){
+	$keys = array_keys($t[0]);
+	
+	foreach ($keys as $k)
+		echo '<th>'.$k.'</th>';
+
+ 	foreach ($t as $item): 
+
+/*
+		echo"<tr><td>";
+		echo $this->escape($item['name']);
+		echo"</td>";
+		
+		echo"<td>";
+		echo $this->escape($item['name']);
+		echo"</td>";
+		
+		echo"<td>";
+		echo $this->escape($item['']);
+		echo"</td>";
+*/
+
+ 	echo "<tr>";
+			foreach ($keys as $k)
+				echo '<td>'.$this->escape($item[$k]).'</td>';
+			
+			echo '<td><a href="'. $this->url(array('module'=>'things', 'controller'=>$this->escape('view'), 'action'=>$this->escape('viewone'), 'id'=>$this->escape($item['id']))) .'">szczeguły</a></td>';
+		echo"</tr>";
+
+	endforeach;
+}
+?>
+</table>

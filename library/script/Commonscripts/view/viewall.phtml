@@ -1,0 +1,112 @@
+<?php	
+
+
+	 if (count($this->paginator)): 
+ 
+		$t = $this->paginator->getItem(0,1);
+	
+	echo '<ul class="kolumna">';	
+
+	
+ foreach ($this->paginator as $item):  	
+
+ 
+     echo '<li>';
+     
+     ?>
+     
+ 	<div class="flt"></div>
+	
+	<div class="ft"></div>
+	
+	<div class="frt"></div>
+	
+	
+ <?php 
+     
+          echo  '<div class="tresc">';
+
+          
+          echo '<a class="preview" href="'. $this->url( array( 'module'=>$this->module,
+													'controller'=>$this->escape($this->controler),
+													'action'=>$this->escape($this->action),
+													'id'=>$this->escape($item['id'] ) ) )
+          					
+								.'"><img src="'.$this->baseUrl().'/public/images/'.$this->module.'/'
+								.$item['id']
+								.'/icons/main.jpg" alt="obraz produktu"/></a>';	
+          
+								
+        echo"<table>";
+        
+		foreach ( $this->keysAndLabels as $key => $label ) {
+
+			echo $key;
+			 echo '<tr> <td><a class="preview" href="'. $this->url( array( 'module'=>$this->module,
+			 
+													'controller'=>$this->escape($this->controler),
+			 
+													'action'=>$this->escape($this->action),
+			 
+													'id'=>$this->escape($item['id'] ) ) )
+          					
+								.'">'.$this->escape($item [ $key ]).'</a></tr> </td>';				
+	 	}
+	 
+	 	echo"</table>";      	
+            
+	
+				if ( Zend_Auth::getInstance()->getStorage()->read()->getRole() === 'admin') {
+				
+						
+					//echo '<div class="button">';
+						  
+								echo '<a href="'. $this->url(array( 'module' => $this->controller,
+															'controller' => 'management',
+															'action'=>'edit',
+															'id'=>$this->escape($item['id'])))					
+								.'">Edytuj</a>';
+								
+					//	echo '</div>';
+		
+					//	  echo '<div class="button">';
+						echo ' <a href="'. $this->url(array( 'module'=>$this->module,
+													'controller'=>'management',
+													'action'=>'delete',
+													'id'=>$this->escape($item['id'])))					
+								.'">Usun</a>';
+								
+						//	echo '</div>';	
+				} else {
+
+					
+						echo "<br/>";
+						
+				}
+
+		 echo "</div>";
+		 
+		 	 
+	 ?>
+	 <div class="flb"></div>
+	 
+	<div class="fb"></div>
+	
+	<div class="frb"></div>
+	
+	 <?php 
+	 
+	 echo"</li>";
+	 	 
+  	endforeach;
+  
+	echo "</ul>";
+	
+ 
+ endif; echo $this->paginationControl($this->paginator,
+
+                                    'Jumping',
+
+                                    'my_pagination_control.phtml',  array("route" => array("module" => $this->module, "controller" => $this->controller, ) ) ); 
+
+?>

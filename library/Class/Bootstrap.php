@@ -1,0 +1,275 @@
+<?php
+
+/** 
+ * @author Konrad
+ * 
+ * 
+ */
+	
+class Bootstrap extends Zend_Application_Bootstrap_Bootstrap {
+	
+	
+	public function init() {
+		
+		iconv_set_encoding('internal_encoding','UTF-8');		
+		
+		$front = Zend_Controller_Front::getInstance();
+		
+		$front->setBaseUrl(BASE_URL);
+		
+	}	
+	
+	protected function _initDb() {
+		
+		$config = new Zend_Config_Xml('../application/config/config.xml', 'general');
+					
+		$a = $config->db->adapter;
+		$t = $config->db->config->toArray();
+		unset($t['params']);
+		
+		 $pdoParams = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8;');
+		$t['driver_options'] = $pdoParams;
+		 
+		$db = Zend_Db::factory($config->db->adapter,$t);
+		Zend_Db_Table_Abstract::setDefaultAdapter($db); 		
+		Zend_Db_Table::setDefaultAdapter($db);
+		
+		Zend_Registry::set('adapter', $db);
+	}
+	
+	protected function _initMenu() {
+		
+				 
+		Zend_Registry::set('menu',  new Zend_Navigation());
+		 
+		Zend_Registry::set('menuAdmin', new Zend_Navigation( ) );
+
+		Zend_Registry::set('menuForAction', new Zend_Navigation( ) );
+			
+	}
+	
+	
+	
+	protected function _initRegistry(){
+		
+		Zend_Registry::set('leftSide',  new Zend_Navigation());
+	}
+	
+	protected function _initTimeExperience(){
+		
+		
+		Zend_Registry::set( 'timout' , 900 );
+	}
+	
+	
+	protected function _initSession(){
+		
+		Zend_Session::setOptions
+        (
+            array
+            (               
+                'gc_maxlifetime'=>5*60
+            )
+        );
+        Zend_Session::start();
+	}
+	
+	
+	protected function _initError(){
+		
+		$fc = Zend_Controller_Front::getInstance();
+		
+		$fc->throwExceptions(false);
+	
+	}
+	
+	
+ 	protected function _initView() {
+        // Initialize view
+        $view = new Zend_View();
+        
+        $view->doctype('XHTML1_STRICT');
+        
+        $view->headTitle('Portfolio');
+ 
+        
+        $view->headScript()->appendFile(BASE_URL.'public/scripts/jquery.js');
+        
+        $view->headScript()->appendFile(BASE_URL.'public/scripts/jquery.lightbox-0.5.js');
+         
+         $view->headScript()->appendFile(BASE_URL.'public/scripts/scripts.js');
+        
+        //$view->HeadLink()->appendStylesheet(BASE_URL.'public/styles/newstyle.css');
+        $view->HeadLink()->appendStylesheet(BASE_URL.'public/styles/lasotaStyle.css');
+        $view->HeadLink()->appendStylesheet(BASE_URL.'public/styles/management.css');
+        $view->HeadLink()->appendStylesheet(BASE_URL.'public/styles/menuAdmin.css');
+        
+        $view->HeadLink()->appendStylesheet(BASE_URL.'public/styles/jquery.lightbox-0.5.css');
+        
+        
+        $view->HeadLink()->appendStylesheet(BASE_URL.'public/styles/menuUpDown.css');
+      	 $view->headScript()->appendFile(BASE_URL.'public/scripts/menuUpDown.js');
+        
+        // Add it to the ViewRenderer
+        $viewRenderer = Zend_Controller_Action_HelperBroker::getStaticHelper(
+            'ViewRenderer'
+        );
+
+        
+         $view->addHelperPath('../application/modules/Cart/views/helpers/');
+        
+        $viewRenderer->setView($view);
+        
+ 
+        // Return it, so that it can be stored by the bootstrap
+        return $view;
+    }
+	
+
+	protected function _initLayoutJS(){
+		
+	
+	   $this->bootstrap( 'view' );
+	   
+       $this->_view = $this->getResource( 'view' );    	
+		
+        $this->_view->headScript()->appendFile('/scripts/jquery.lightbox-0.5.js');
+       
+	}
+
+	
+	
+	
+	protected function  _initErroHandler(){
+		
+		
+		
+		$plugin = new Zend_Controller_Plugin_ErrorHandler();
+
+		$plugin->setErrorHandlerModule('error')
+
+       		->setErrorHandlerController('error')
+
+      		->setErrorHandlerAction('error');      
+
+      		
+      	$front =  Zend_Controller_Front::getInstance();
+      	
+      	$front->throwExceptions(true);
+      	
+      	$front->registerPlugin( $plugin );
+      	
+	}
+	
+	
+	protected function _initAuth() {
+		
+		
+		 //require_once '../application/modules/accounts/library/AuthStorage.php';
+	    
+	 	//Zend_Auth::getInstance()->setStorage( new Log_Log_library_AuthStorage() );
+	 	 
+	 	Zend_Auth::getInstance()->setStorage( new Log_library_AuthStorage() ); 
+	 	
+	 	$front =  Zend_Controller_Front::getInstance();
+	 	
+	 	$front->registerPlugin(new Log_library_Autorization());
+
+	}
+	
+	
+	protected function _initAcl(){		
+		
+		Zend_View_Helper_Navigation_HelperAbstract::setDefaultAcl( new Class_myAcl() );		
+		Zend_View_Helper_Navigation_HelperAbstract::setDefaultRole('guest');		
+		
+		$aclManager = new Components_Acl_AclManagement( );		
+	
+	
+    	$aclManager->initializeResource();
+        
+		
+	}
+
+	protected function _initConst(){
+/*test z nysart-pc*/
+		
+		
+		define('configPatch','../application/config');
+		
+		define('modulePatch','../application/modules');
+		
+	}
+	
+	
+		
+	protected function _initEncoding() {
+	 	
+	 	
+	 	$fc = Zend_Controller_Front::getInstance();
+	    
+	 	$response = new Zend_Controller_Response_Http;
+	    
+	 	$response->setHeader('Content-Type','text/html;charset=utf-8', true);
+	 	//$response->setHeader('Content-Type','text/html;charset=iso-8859-2', true);
+	    
+	 	$fc->setResponse($response);
+	 	
+    }   
+
+    
+    	protected function _initDefaultController() {
+    		
+    		$fc = Zend_Controller_Front::getInstance();
+    	//	$fc->setDefaultModule('Cms');
+    	//	$fc->setDefaultControllerName('Management');
+    		
+    	//	$fc->setDefaultAction('viewone');
+    		
+    		
+    		
+    		
+    			$router = $fc->getRouter(); // returns a rewrite router by default
+			$router->addRoute(
+			    'azPortfolio',
+			    new Zend_Controller_Router_Route(':module/:controller/:action/*',
+			                                     array('module' => ':module',
+			                                     	'controller' => ':controller' ,
+			                                           'action' => ':action',
+			                                     		))
+			     );
+			  
+			     $router->addRoute(
+			    'mainPage',
+			    new Zend_Controller_Router_Route('/',
+			                                     array('module' => 'Cms',
+			                                     	'controller' => 'Management' ,
+			                                           'action' => 'viewone',
+			                                     		'id'=>'1'))
+			     );
+			    
+    		/*
+    		$router->addRoute(
+			    'azPortfoliohost',new Zend_Controller_Router_Route_Hostname( 'hosting8995816.az.pl/portfolio/',
+    												 array('module' => 'Cms',
+			                                     	'controller' => 'Management' ,
+			                                           'action' => 'viewone',
+			                                     		'id'=>'1')) );
+			                                     		*/
+    		
+    	
+         
+			    /*
+			     $router->addRoute(
+			    'azPortfolioX',
+			    new Zend_Controller_Router_Route('portfolio/:module/:Controller/:Action',
+			                                     array('module' =>':module',
+			                                     	'controller' => 'Management' ,
+			                                           'action' => 'viewone',
+			                                     		'id'=>'1'))
+			     );
+			     */
+    		}
+
+}
+

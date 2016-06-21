@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<zend-config>
+	<internalMenu>
+		<courier>
+		
+
+			<action>add</action>
+			<label>dodaj</label>
+			
+			 <resource>courier:view</resource>
+         	 <privilege>viewall</privilege>
+			
+		</courier>
+	</internalMenu>
+</zend-config>

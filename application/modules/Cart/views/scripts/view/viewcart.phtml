@@ -1,0 +1,57 @@
+	<?php
+	
+	echo '<div id="cart">';
+	
+	if ($this->things) {
+	
+		$t = $this->things [0];
+		
+		$keys = array_keys ( $t->toArray () );
+		
+		echo '<table>';
+		
+		
+		echo '<th>Zawartość Koszyka</th>';
+		
+		/*	
+		foreach ( $t as $k ){
+			
+			echo '<th>' . $k . '</th>';
+			
+		}
+		*/
+		for($i = 0; $i < count ( $this->things ); $i ++) {
+			
+			echo '<tr>';
+			
+			//$t = $this->things [$i]->toArray ();
+			$p = $this->things [$i]->toArray ();
+			
+			foreach ( $p as $x ) {
+				
+				echo '<td>' . $x . '</td>';
+			
+			}
+			
+			//echo '<td><a href="'.$this->url(array('module'=>'sale','controller'=>'transaction','action'=>'order')).'">usun</a></td>';
+			
+
+			echo '<td> <a href="' . $this->url ( array ('module' => 'Cart', 'controller' => 'Cart', 'action' => 'delete', 'id' => $t ['nr.Produktu'] ) ) . '">usun</a> </td>';
+			
+			echo '</tr>';
+	
+		}
+		
+		echo '</table>';
+		
+		echo 'suma: ' . $this->sum;
+	
+	} else {
+		
+		echo "kosz jest pusty";
+	
+	}
+	
+	echo '</div>';
+	
+	?>

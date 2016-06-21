@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zend-config>
+	<menu>
+		<add>
+			<link>accounts/addandedit/add</link>
+			<name>Dodaj konto</name>
+		</add>
+		<employers>
+			<link>accounts/view/search2/param/employers</link>
+			<name>Pracownicy</name>
+		</employers>
+		<clients>
+			<link>accounts/view/search2/param/clients</link>
+			<name>Klienci</name>
+		</clients>
+	</menu>
+
+</zend-config>

@@ -1,0 +1,34 @@
+<h4>Adres wysyłki</h4>
+
+<table class="address-to-send">
+    <tr>
+        <th>Imię</th>
+        <th>Nazwisko</th>
+        <th>Ulica</th>
+        <th>Numer domu</th>
+        <th>Numer mieszkania</th>
+        <th>Miasto</th>
+        <th>Kod pocztowy</th>           
+    </tr>
+    
+
+    <tr>
+<?php
+
+
+//var_dump();
+echo '<td>'.$this->rowPerson['name'].'</td>'; 
+echo '<td>'.$this->rowPerson['surname'].'</td>';
+echo '<td>'.$this->rowAddress['street'].'</td>';
+echo '<td>'.$this->rowAddress['house_nr'].'</td>';
+echo '<td>'.$this->rowAddress['flat_nr'].'</td>';
+echo '<td>'.$this->rowAddress['city'].'</td>';
+echo '<td>'.$this->rowAddress['postcode'].'</td>';
+
+?>
+    </tr>
+    
+    </table>
+<?php
+
+echo $this->form;

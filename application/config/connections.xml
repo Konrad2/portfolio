@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zend-config>
+
+	<things>
+			<viewone>
+				<comments>courier</comments>
+			</viewone>
+			
+			
+			<management>
+				<viewone>
+					<Comments>Comments</Comments>
+				</viewone>
+				<add>
+					<Category>FormDbClient</Category></add>
+                        </management>
+		
+		</things>
+		
+		
+
+	<accounts>
+		<addandedit>
+			<add>
+				<address>addressFormDb</address>
+				<person>personFormDb</person>
+			</add>
+		</addandedit>
+	</accounts>
+
+
+	<search>
+		<view>
+			<viewinterface>
+				<things>searcher</things>
+			</viewinterface>
+		</view>
+	</search>
+
+	<Sale>
+		<Transaction>
+			<step1>
+				<person>personFormDb</person>
+				<address>addressFormDb</address>
+				<courier>whoCourier</courier>
+				<pay>choosePayingType</pay>
+				<status>formDbStatus</status>
+			</step1>
+                        
+		</Transaction>
+
+		<View>
+			<viewone>
+				<courier>courier</courier>
+			</viewone>
+		</View>
+
+		<View>
+			<viewone>
+				<address>address</address>
+			</viewone>
+		</View>
+
+		<View>
+			<viewone>
+				<pay>pay</pay>
+			</viewone>
+		</View>
+
+		<View>
+			<viewone>
+				<person>person</person>
+			</viewone>
+		</View>
+
+		<View>
+			<viewone>
+				<status>status</status>
+			</viewone>
+		</View>
+	</Sale>
+
+
+	<courier>
+	
+		<View>
+			<viewone>
+				<courieraddress>courieraddress</courieraddress>
+			</viewone>
+		</View>
+		
+		<View>
+			<viewone>
+				<courieremploee>courieremploee</courieremploee>
+			</viewone>
+		</View>
+	
+		<addandedit>
+			<add>
+				<address>addressFormDb</address>
+				<person>personFormDb</person>
+			</add>
+		</addandedit>
+		
+	</courier>
+
+	<suppliers>
+		<addandedit>
+			<add>
+				<address>addressFormDb</address>
+			</add>
+		</addandedit>
+	</suppliers>
+	
+	<accounts>	
+		<view>
+			<viewone>
+				<address>address</address>
+			</viewone>
+		</view>
+		
+		<view>
+			<viewone>
+				<person>person</person>
+			</viewone>
+		</view>		
+	</accounts>
+
+
+	<IcartProduct>
+		<name>thingsCart</name>
+		<patch>test</patch></IcartProduct></zend-config>

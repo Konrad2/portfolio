@@ -1,0 +1,17 @@
+<?php
+echo '<h3>'.$this->title.'</h3>';
+
+//echo '<table><th></th>';
+if ($this->row->street)
+	echo $this->row->street;
+if(  $this->row->house_nr)
+	echo ' '.$this->row->house_nr;
+	
+if ($this->row->flat_nr)
+	echo '/'.$this->row->flat_nr;
+	
+if ( $this->row->city && $this->row->postcode) {
+	echo '<p>'. $this->row->postcode .' '.$this->row->city.'</p>';
+}
+
+echo '<a href="'. $this->url(array('module'=>$this->module, 'controller'=>$this->controller, 'action'=>'edit','id'=>$this->row->id  )) .'">edytuj</a>';

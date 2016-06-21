@@ -1,0 +1,45 @@
+<fieldset>
+	<legend>
+		<?php 
+			echo $this->title;
+ 		?>
+	</legend>
+
+<?php
+ 
+ echo $this->title;
+ 
+ 
+  if ( $this->row != null) {
+  	
+  	
+	  $link =  '<a href="'.$this->baseUrl.'/'.$this->link.'">';
+	
+	  
+	  foreach ( $this->row->toArray() as $r => $v ) {
+	  	
+	  	
+	  	if ( $r != 'id')
+	  		
+	  			$link .= $r.':'.$v;
+	  			 
+	  }
+	  
+	  
+	  $link .= '</a>';
+	  
+	  echo $link;
+	  
+	  
+  } else {
+  	
+  	
+  		echo " nie podano";
+  	
+  		echo '<a href="'. $this->url( array( 'module' => $this->moduleName, 'controller' => 'addandedit', 'action' => 'add'  ) ).'">Dodaj '.$this->title.'</a>';
+  	
+  }
+  
+ ?>
+ 
+ </fieldset>

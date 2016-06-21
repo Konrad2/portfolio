@@ -1,0 +1,82 @@
+<?php 
+
+ if ( $this > 1 ){
+
+?>
+
+<ul id="paginator" >
+Wybierz strone &nbsp
+
+
+<li>
+
+        <a href="<?php echo $this->url( array ('module'=> $this->route['module'],//$this->module,
+      											'controller' =>  $this->controller,
+												 'action' => 'move',
+												 'page' => $this->firstItemNumber)); ?>">
+	<<
+        </a> 
+</li>
+
+
+<li>
+        <a href="<?php echo $this->url( array ('module'=> $this->route['module'],//$this->module,
+      											'controller' =>  $this->controller,
+												 'action' => 'move',
+												 'page' => $this->previous)); ?>">
+			<
+        </a> 
+</li>
+
+<?php 
+	
+	
+	if ( $this->lastItemNumber > 6 ){
+		
+			for( $i = 1; $i < 5; $i++ ){
+		
+				echo $i.',';
+			}
+			
+			echo '...';
+			
+			echo $this->lastItemNumber;
+			
+			
+	} else {		
+		
+			
+			for( $i = 1; $i < $this->lastItemNumber; $i++ ){
+				
+				echo $i.',';
+			}
+			
+	}
+?>
+  
+  <li>  
+        <a href="<?php echo $this->url( array ( 'module'=> $this->route['module'],
+												'controller' =>  $this->controller,
+												 'action' => 'move',
+												     'page' => $this->next) ); ?>">
+  >
+  
+        </a> 
+  </li>
+  
+  
+  
+  
+<li>
+
+        <a href="<?php echo $this->url( array ('module'=> $this->route['module'],//$this->module,
+      											'controller' =>  $this->controller,
+												 'action' => 'move',
+												 'page' => $this->lastItemNumber)); ?>">
+	>>
+        </a> 
+</li>
+  
+</ul>       
+  
+  <?php } ?>

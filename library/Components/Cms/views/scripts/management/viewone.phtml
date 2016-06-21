@@ -1,0 +1,61 @@
+<?php
+	
+//Wy��wietlanie po��sz�czonych modu��w
+/**
+ * @todo polaczony modul nie z palca. 
+ */
+
+	if ( ! empty( $this->mod ) )
+	
+		foreach ( $this->mod as $m ) {
+				
+		//	echo "view one jestem</br>";
+			echo $this->action('viewlabel', 
+								'view',
+								$m,
+								array('param' => $this->id) );
+		}
+			
+ //WyŶwietlanie wiersza
+ 
+	echo "<table>";
+	 
+	  	$t = $this->thing->toArray();
+	  	
+	  
+		
+		echo '<h1>'. $t['name'] .'</h1>';
+		
+		
+		
+$bbcode = Zend_Markup::factory('Bbcode');
+
+
+ 
+echo '<div>';
+echo $bbcode->render( $t['description']);
+
+
+echo '</div>';
+
+
+	/*
+	  //	foreach ($t as $key => $item): 
+	 foreach ( $this->keysAndLabels as $key => $label ) {
+	  	//if ($key != 'id'){
+	  		  	
+			echo"<tr>";
+				
+				echo '<td>'. $label .'</td>';
+				
+				$out =  empty ( $t [ $key ] ) ? 'b.d' : $t [ $key ];
+				 
+				echo '<td>'.$this->escape($out).'</td>';
+				
+			echo"</tr>";
+	  //	}
+	 }
+	  */
+	   
+	echo "</table>"; 
+?>

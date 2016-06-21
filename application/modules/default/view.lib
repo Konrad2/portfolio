@@ -1,0 +1,26 @@
+<?php 
+	function view()
+	{
+		echo "pomyślnie zainicjowano moduł view";
+		$g = new Zend_Session_Namespace('view');
+		$g->setExpirationSeconds(3600);
+				
+				//$registry = Zend_Registry::getInstance();
+				
+		$config = Zend_Registry::get('config');					
+			
+		$db = Zend_Registry::get('db');
+				
+				/*$query = 'Select count(*) as id from pojazdy';
+				$g->count = $db->fetchOne($query);
+				$r = $db->fetchOne($query);
+				foreach($r as $row)
+				{
+					$globals->count = $row['id'];
+				}
+				*/
+		$g->offset = 0;
+		$g->howMany = 10;
+	}
+
+?>

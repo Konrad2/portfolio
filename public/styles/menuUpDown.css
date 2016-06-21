@@ -1,0 +1,89 @@
+@CHARSET "UTF-8";
+
+
+/* dynamic menu*/
+
+   
+ul.navigation {
+	
+		margin: 0;	
+		text-align:center;
+		padding: 0;
+		list-style: none;
+		float: left;
+		font-size: 1.1em;	
+		background-color: #011524;		
+		
+		border-top-style: none;
+		border-bottom-style : none;
+		width:193px;	
+}
+
+ul.navigation li{
+	
+	
+	overflow: hidden;  /*--Important - Masking out the hover state by default--*/
+
+	padding: 0;
+	/*float: left;*/
+	height:40px;
+	
+		list-style: none; 
+/*	margin: 0px 30px 10px -20px;*/
+	padding:5px;
+	border-bottom-color: #1e2f44;
+	border-bottom-style:solid;
+	border-bottom-width:1px;
+	
+}
+
+ul.navigation a, ul.navigation span { /*--The <a> and <span> share the same properties since the <span>  will be a duplicate of the <a> tag--*/
+	
+	
+	padding: 9px 0px;
+	float: left;
+	text-decoration: none;
+	color: white;
+	background:#026888 url (a_bg.gif) repeat-x;
+	/*text-transform: uppercase;*/
+	/*clear: both;*/
+	width: 100%;
+	height: 30px;
+	line-height: 20px; /*--Vertical alignment of text--*/
+}
+
+ul.navigation a{ /*--This is basically the hover state of navigation--*/
+	
+	color: white;
+	background-position: left bottom;
+	/*background-color: #004A4A	;*/
+	background-color: #033A58	;
+	/*background-color: #007CA0;*/
+}
+
+ul.navigation span{ /*--Default state of navigation--*/
+	background-position: left top;
+	color:#A1FFFF;
+	background-color: #011524;
+	
+}
+/*end*/
+
+
+#leftside {
+	float: right;
+	background-color:white;
+	width: 650px;
+	height: 560px;
+	margin-left: 50px;
+
+	/*
+
+	-webkit-border-radius: 20px; 
+  -khtml-border-radius: 20px;   
+  -moz-border-radius: 20px; 
+   border-radius: 20px;
+	*/
+}
+
+

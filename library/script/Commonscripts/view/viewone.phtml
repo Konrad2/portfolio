@@ -1,0 +1,92 @@
+<?php
+
+		$role = Zend_Auth::getInstance()->getStorage()->read()->getRole();
+				
+	if ($role === 'admin') {
+			
+		//	echo '<div class="button" onclick="$.add2cart( "product1_id", "cart_img_id"  )" >';
+		echo '<ul > <li style="display:inline;">';			 
+			
+			echo '<a href="'. $this->url(array( 'module' => $this->module,
+												'controller' => 'management',
+												'action' => 'edit',
+													'id' => $this->escape( $this->id ) ) )					
+							. '">Edytuj</a>';
+
+			echo '</li>';
+		//	echo '</div>';
+			
+		//	echo '<div class="button">';
+			echo '<li style="display:inline;">';
+						echo ' <a href="'. $this->url(array( 'module' =>$this->module,
+													'controller' => 'management',
+													'action' => 'delete',
+													'id' => $this->escape( $this->id ) ) )					
+								.'">Usun</a>';
+								
+			echo '</li>';//echo '</div>';
+				
+				
+			echo '<li style="display:inline;">';
+		//	echo '<div class="button">';
+			echo ' <a href="'. $this->url(array( 'module'=>$this->module,
+													'controller'=>'picture',
+													'action'=>'add',
+													'id'=>$this->escape($this->id ) ) )					
+								.'">Dodaj obraz</a>';
+								
+			echo '</li>';
+			
+		echo '</ul>';
+	}	
+//Wy��wietlanie po��sz�czonych modu��w
+
+	if ( ! empty( $this->mod ) )
+	
+		foreach ( $this->mod as $m ) {
+				
+		//	echo "view one jestem</br>";
+			echo $this->action('viewlabel', 
+								'view',
+								$m,
+								array('param' => $this->id) );
+		}
+			
+ //WyŶwietlanie wiersza
+ echo '<a id="back" href="'. $this->url( array( 'action'=>'viewall') ) .'"><img class="arrow" src="'.$this->baseUrl().'/public/images/bck.jpg" alt="Powrót"></a>';
+ 
+ 
+		$t = $this->thing->toArray();
+		
+		echo '<h1>'. $t['name'] .'</h1>';
+		
+		echo '<div id="descriptionView">'. $t['description'] .'</div>';
+	/*	
+	echo "<table>";
+	 
+	  	
+	
+	  //	foreach ($t as $key => $item): 
+	  
+	 foreach ( $this->keysAndLabels as $key => $label ) {
+	 	
+	  	//if ($key != 'id'){
+	  		  	
+			echo"<tr>";
+				
+				echo '<td>'. $label .'</td>';
+				
+				$out =  empty ( $t [ $key ] ) ? 'b.d' : $t [ $key ];
+				 
+				echo '<td>'.$this->escape($out).'</td>';
+				
+			echo"</tr>";
+	  //	}
+	 }
+	  
+	   
+	echo "</table>"; 
+	*/
+						
+	
+	

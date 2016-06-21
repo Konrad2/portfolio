@@ -1,0 +1,49 @@
+<?php
+if (is_array($this->things))
+{
+	if (!empty($this->things))
+	{
+		
+		echo '<table>';
+		foreach ($this->things as $p)
+		{
+			//echo $this->escape($p->name).' '. $this->escape($p->price) .'<br/>';
+		}
+		/*±
+
+		$z = $this->things[0];
+		$keys = array_keys($z);
+		
+		foreach ($keys as $k)
+		{
+			if ($k != 'id')
+				echo '<th>'.$k.'</ th>';
+		}
+
+		foreach ($this->things as $thing)
+		{
+			echo '<tr>';	
+			foreach($keys as $k)
+			{
+				if ($k != 'id')
+					echo '<td>'. $thing[$k].'</ td>';
+				//echo '<td>'. $thing.'</ td>';
+			}	
+			echo '<td> <a href="'.$this->url(array('module'=>'basket','controller'=>'basket','action'=>'deleteproduct','id'=>$thing['id'])) .'">usun<a /></ td>';
+			echo '</ tr>';
+		}
+		*/
+		echo "</table>";
+		
+		
+	}
+	else
+	{
+		echo "kosz jest pusty";
+	}
+}
+else
+{
+	echo "kosz jest pusty";
+}
+?>

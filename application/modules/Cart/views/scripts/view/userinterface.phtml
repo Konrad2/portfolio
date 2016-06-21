@@ -1,0 +1,53 @@
+<div class="columnContent">
+
+<?php 
+	
+	
+
+
+if ($this->things)
+{
+	
+
+	$t = $this->things[0];
+
+	$keys = array_keys($t->toArray());
+	echo '<table class="dsa">';
+	/*
+	foreach ($t as $k)
+		echo '<th>'.$k.'<th/>';
+*/
+	for($i = 0; $i < count($this->things); $i++)
+	{
+		echo '<tr>';
+
+		$t = $this->things[$i]->toArray();
+		foreach($t as $x)
+		{
+			echo '<td>'.$x.'</td>';
+		}
+
+		echo '</tr>';
+	}
+	echo '</table>';
+
+/*
+	foreach ($this->things as $p)
+	{
+		$p->toArray();
+		foreach ($keys as $k)
+			echo $this->escape($p->$k).'<br /> ';
+	}
+*/
+//	echo 'suma: '.$this->sum;	
+
+	echo '<a href="'.$this->url(array('module'=>'Cart','controller'=>'Cart',  'action'=>'tocashdesk')).'">Do kasy</a>'.PHP_EOL;
+
+	
+ echo '<a href="'.$this->url(array('module'=>'Cart','controller'=>'View','action'=>'viewcart')).'">Zobacz koszyk</a>';	
+}
+else 
+	echo "<h5>Koszyk jest pusty</h5>";
+?>
+
+</div>

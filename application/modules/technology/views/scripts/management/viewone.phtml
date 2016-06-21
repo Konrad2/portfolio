@@ -1,0 +1,109 @@
+<?php
+/**
+ * @package Pictures
+ * 
+ * @param array things
+ * @paramr id int
+ * @param string mainIcon Scieżka do gównej ikony
+ * @param array bigPictures  Tablica cierzk do obrazków
+ */
+
+	$role = Zend_Auth::getInstance()->getStorage()->read()->getRole();
+				
+	if ($role === 'admin') {
+			
+		
+		
+		echo '<ul>';/* <li style="display:inline;">';			 
+			
+			echo '<a href="'. $this->url(array( 'module' => $this->module,
+												'controller' => $this->controller,
+												'action' => 'edit',
+													'id' => $this->escape( $this->id ) ) )					
+							. '">Edytuj</a>';
+
+			echo '</li>';
+			*/
+		//	echo '</div>';
+			
+		//	echo '<div class="button">';
+			echo '<li style="display:inline;">';
+						echo ' <a href="'. $this->url(array( 'module' =>$this->module,
+													'controller' => $this->controller,
+													'action' => 'delete',
+													'id' => $this->escape( $this->id ) ) )					
+								.'">Usun</a>';
+								
+			echo '</li>';//echo '</div>';
+				
+				
+			echo '<li style="display:inline;">';
+		//	echo '<div class="button">';
+			echo ' <a href="'. $this->url(array( 'module'=>$this->module,
+													'controller'=>$this->controller,
+													'action'=>'addpict',
+													'id'=>$this->escape($this->id ) ) )					
+								.'">Dodaj obraz</a>';
+								
+			echo '</li>';
+			
+		echo '</ul>';
+	}
+	
+	
+//Wy��wietlanie po��sz�czonych modu��w
+/*
+	if ( ! empty( $this->mod ) )
+	
+		foreach ( $this->mod as $m ) {
+				
+		//	echo "view one jestem</br>";
+			echo $this->action('viewlabel', 
+								'view',
+								$m,
+								array('param' => $this->id) );
+		}
+	
+	||
+	\/		
+*/
+	
+//	$this->render('connector.phtml');
+ //WyŶwietlanie wiersza
+ echo '<a id="back" href="'. $this->url( array( 'action'=>'viewall') ) .'"><img class="arrow" src="'.$this->baseUrl().'/public/images/bck.jpg" alt="Powrót"></a>';
+ 
+ 
+		$t = $this->thing->toArray();
+		
+		echo '<h1>'. $t['name'] .'</h1>';
+		
+		echo '<div id="descriptionView">'. $t['description'] .'</div>';
+	/*	
+	echo "<table>";
+	 
+	  	
+	
+	  //	foreach ($t as $key => $item): 
+	  
+	 foreach ( $this->keysAndLabels as $key => $label ) {
+	 	
+	  	//if ($key != 'id'){
+	  		  	
+			echo"<tr>";
+				
+				echo '<td>'. $label .'</td>';
+				
+				$out =  empty ( $t [ $key ] ) ? 'b.d' : $t [ $key ];
+				 
+				echo '<td>'.$this->escape($out).'</td>';
+				
+			echo"</tr>";
+	  //	}
+	 }
+	  
+	   
+	echo "</table>"; 
+	*/
+						
+	//echo $this->action('viewall', 'management', 'Comments' );
+	

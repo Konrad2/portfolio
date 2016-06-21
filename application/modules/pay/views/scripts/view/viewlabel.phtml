@@ -1,0 +1,4 @@
+<?php 
+echo '<h3>'.$this->title.'</h3>';
+echo $this->row->pay_type; 
+echo '<a href="'. $this->url(array('module'=>$this->module, 'controller'=>$this->controller, 'action'=>'changetype','id'=>$this->row->id  )) .'">edytuj</a>';

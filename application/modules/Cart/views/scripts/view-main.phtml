@@ -1,0 +1,14 @@
+<div id=basket">
+
+<?php 
+
+echo '<a href="'.$this->url(array('module'=>'sale','controller'=>'basket','action'=>'viewbasket')).'">koszyk</a>';
+foreach ($this->products as $p)
+{
+		echo $this->escape($p->name).' '. $this->escape($p->price) .'<br/>';
+}
+
+echo '<a href="'.$this->url(array('module'=>'sale','controller'=>'transaction','action'=>'order')).'">finalizacja</a>';
+?>
+
+</div>

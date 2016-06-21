@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<zend-config>
+
+	<connections>
+		<orderStep1>chooseCourier</orderStep1>
+
+		<orderInsert>courierInsert</orderInsert>
+		<order>order</order>
+	</connections>
+
+	<contract>
+		<thing></thing>
+	</contract>
+	
+	<menu>
+		<add>
+		<!--
+			<module>courier</module>
+			<controller>addandedit</controller>
+			<action>add</action>
+			<label>Dodaj</label>
+			
+			<resource>courier:view</resource>
+         	<privilege>viewall</privilege>		
+	-->
+			<link>courier/addandedit/add</link>
+			<name>Dodaj Kuriera</name>			
+	
+		</add>
+	</menu>
+
+	<test>
+		<action>/new/courier/addandedit/add</action>
+		<Elements>
+			<ElementName1>
+				<type>text</type>
+				<name>name</name>
+				<options>
+					<label>Nazwa Kuriera</label>
+				</options>
+			</ElementName1>
+			<ElementName2>
+				<type>text</type>
+				<name>prise</name>
+				<options>
+					<label>Cena przesyłki</label>
+				</options>
+			</ElementName2>
+
+			<ElementName5>
+				<type>submit</type>
+				<name>Wyślij</name>
+				<value></value>
+				<options>
+					<ignore>true</ignore>
+					<label>Wyślij</label>
+				</options>
+			</ElementName5>
+
+		</Elements>
+
+
+
+		<Legend>Form 1</Legend>
+		<Method>post</Method>
+		<DisplayGroups>
+			<DisplayGroup>
+				<Elements>
+					<ElementName1>name</ElementName1>
+					<ElementName2>prise</ElementName2>
+				</Elements>
+				<Options>
+					<Name>login</Name>
+					<label>Test</label>
+					<Legend>Form 1</Legend>
+				</Options>
+			</DisplayGroup>
+		</DisplayGroups>
+		<DefaultDisplayGroupClass>
+			<fieldset>
+				<decorator>Fieldset</decorator>
+				<options></options>
+			</fieldset>
+		</DefaultDisplayGroupClass>
+	</test>
+
+	<rowOutput>
+		<name>Nazwa Kuriera</name>
+		<prise>Cena przesyłki</prise>
+	</rowOutput>
+
+</zend-config>

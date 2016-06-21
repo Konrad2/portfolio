@@ -1,0 +1,120 @@
+<?php
+/*
+	$patchToConfig = '../application/modules/courier/config.xml';
+		
+
+		if (file_exists ( $patchToConfig )){
+		
+			
+			$con =  new Zend_Config_Xml( $patchToConfig ,'menu');
+			
+			$container = new Zend_Navigation( $con->toArray() );
+			
+			//$container->
+					
+			$this->courierMenu($container);
+			
+			$this->courierMenu()->setAcl(new Class_myAcl());
+			
+			$this->courierMenu()->setRole(Class_Auth::getRole());
+			
+			
+			echo '<ul title="Menu" style="list-style: none; padding: 0pt; margin: 3pt;">';
+			
+				echo $this->courierMenu()->menu()->renderMenu();	
+			//	echo $container->menu()->renderMenu();	
+				
+			echo '</ul>';
+
+			
+			echo "<br/>";
+			
+		}
+		else
+			echo "nie ma pliku config";
+			
+*/			
+
+if ( isset($this->message) )
+{
+	echo '<div class="message">'. $this->message .'</div>';
+}
+
+if (count($this->paginator)): 
+
+	echo "<table>";
+
+	$t = $this->paginator->getItem(0,1);
+
+	$keys = array_keys($t);
+	
+	foreach ($keys as $k)	
+		if ($k != 'id')
+			echo '<th>'.$k.'</th>'; 
+
+	foreach ($this->paginator as $item): 
+
+		echo"<tr>";
+
+		if ( $this->whatShow === null ) {
+			
+		
+				foreach ($keys as $k)
+					if ($k != 'id')
+						echo '<td>  <a href="'
+						
+									. $this->url(array( 'controller'=>$this->escape($this->controler),
+									
+														'action'=>$this->escape($this->action),
+									
+														'id'=>$this->escape($item['id'])))				
+										
+									.'">'
+									
+									.$this->escape($item[$k]) 
+									
+									.'</a> </td>';
+		} else {
+			
+			
+			foreach ($this->whatShow as $what => $as): 
+				 
+				  	//if ($key != 'id'){
+				  		  	
+						echo"<tr>";	
+							echo '<td>'. $as .'</td>';
+							//$out =  empty( $this->thing[ $what ] ) ? 'b.d':$item; 
+							echo '<td>'.$this->escape( $this->thing[ $what ] ).'</td>';
+						echo"</tr>";
+				  //	}
+				  	
+				   endforeach;
+				   
+				   
+		}
+		/*					
+		echo '<td><a href="'. $this->url(array( 'controller'=>$this->escape($this->controler),
+												'action'=>$this->escape($this->action),
+												'id'=>$this->escape($item['id'])))					
+							.'">Szczeguly</a></td>';
+							*/
+		//Edycja
+		echo '<td><a href="'. $this->url(array( 'controller'=>'addandedit',
+												'action'=>'edit',
+												'id'=>$this->escape($item['id'])))					
+							.'">Edytuj</a></td>';
+							
+		echo '<td><a href="'. $this->url(array( 'controller'=>'addandedit',
+												'action'=>'delete',
+												'id'=>$this->escape($item['id'])))					
+							.'">Usun</a></td>';
+	echo"</tr>";		
+	  endforeach;
+	echo "</table>";
+
+ endif;
+
+ echo $this->paginationControl($this->paginator,
+                                    'Jumping',
+                                    'my_pagination_control.phtml');
+?>

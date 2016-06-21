@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:tns="http://www.example.org/config/" xmlns="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.example.org/config/">
+	<element name="NewElement" type="string"></element>
+
+	<element name="controllerName" type="string"></element>
+
+	<attribute name="name" type="string"></attribute>
+</schema>

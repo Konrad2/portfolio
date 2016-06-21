@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zend-config>
+	<menu>
+		<add>
+			<link>category/addandedit/add</link>
+			<name>Dodaj Kategorie</name>
+		</add>
+	</menu>
+
+</zend-config>

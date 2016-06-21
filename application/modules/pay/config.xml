@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zend-config>
+<!-- 	<menu>
+		<add>
+			<link>pay/addandedit/add</link>
+			<name>Dodaj sposób płatności</name>
+		</add>
+	</menu>
+	 -->
+</zend-config>

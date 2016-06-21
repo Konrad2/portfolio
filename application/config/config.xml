@@ -1,0 +1,248 @@
+<?xml version="1.0"?>
+<zend-config>
+	<general>
+		<db>
+			<adapter>PDO_MYSQL</adapter>
+			<config>
+			
+			<params><charset>utf8</charset> </params> 
+				<host>localhost</host>
+				<username>root</username>
+				<password></password>
+				<dbname>portfolio</dbname>
+			</config>
+			<resources>
+				<modules></modules></resources></db>
+	</general>
+
+	<setings>
+		<pageRang>3</pageRang>
+		<itemsCount>20</itemsCount>
+		<timeout>1200</timeout>
+	</setings>
+
+	<modules>
+
+		<search>
+			<name>search</name>
+			<output>Wyszukiwanie</output>
+			<side>right</side>
+		</search>
+
+		<accounts>
+			<name>accounts</name>
+			<output>Konta</output>
+			<side>right</side>
+		</accounts>
+
+		<admin>
+			<name>admin</name>
+			<output>Panel Administracyjny</output>
+		</admin>
+
+		<default>
+			<name>default</name>
+			<output>Domyślny</output>
+		</default>
+
+		<view>
+			<name>view</name>
+			<output>Widok Old</output>
+		</view>
+
+		<courier>
+			<name>courier</name>
+			<output>Kurierzy</output>
+		</courier>
+
+		<sale>
+			<name>sale</name>
+			<output>Sprzedarz</output>
+		</sale>
+
+		<things>
+			<name>things</name>
+			<output>Produkty</output>
+		</things>
+
+		<cart>
+			<name>cart</name>
+			<output>Koszyk</output>
+			<side>right</side>
+		</cart>
+
+		<pay>
+			<name>pay</name>
+			<output>Płatności</output>
+		</pay>
+<!--
+		<category>
+			<name>category</name>
+			<output>Kategorie</output>
+			<side>left</side>
+		</category>
+	-->	
+		<Testcat>
+			<name>Testcat</name>
+			<output>KategorieTest</output>
+			<side>left</side>
+		</Testcat>
+
+	</modules>	
+	
+	<mainmenu>
+	
+		<things>
+			<module>things</module>
+			<controller>view</controller>
+			<action>viewall</action>
+			<label>Produkty</label>
+		</things>
+		
+		<courier>
+			<module>courier</module>
+			<controller>view</controller>
+			<action>viewall</action>
+			<label>Kurierzy</label>
+			
+			 <resource>courier:view</resource>
+         	 <privilege>viewall</privilege>
+			
+		</courier>
+
+		<sale>
+			<module>sale</module>
+			<controller>view</controller>
+			<action>viewall</action>
+			<label>Sprzedarz</label>
+			
+			 <resource>sale:view</resource>
+         	 <privilege>viewall</privilege>
+		</sale>
+
+		<cart>
+			<module>cart</module>
+			<controller>view</controller>
+			<action>viewcart</action>
+			<label>koszyk</label>
+		</cart>
+
+		<pay>
+			<module>pay</module>
+			<controller>view</controller>
+			<action>viewall</action>
+			<label>Płatności</label>
+			
+			 <resource>pay:view</resource>
+         	 <privilege>viewall</privilege>
+		</pay>
+
+		<suppliers>
+			<module>suppliers</module>
+			<controller>view</controller>
+			<action>viewall</action>
+			<label>Dostawcy</label>
+			
+			 <resource>suppliers:view</resource>
+         	 <privilege>viewall</privilege>
+		</suppliers>
+
+		<category>
+			<module>category</module>
+			<controller>view</controller>
+			<action>viewall</action>
+			<label>Kategorie</label>
+			
+			 <resource>category:view</resource>
+         	 <privilege>viewall</privilege>
+		</category>
+
+		<accounts>
+			<module>accounts</module>
+			<controller>view</controller>
+			<action>viewall</action>
+			<label>Konta</label>
+			
+			 <resource>accounts:view</resource>
+         	 <privilege>viewall</privilege>			 		
+		</accounts>
+		
+		
+		<testCategory>
+			<module>Testcat</module>
+			<controller>view</controller>
+			<action>viewall</action>
+			<label>modul category</label>
+			
+			
+			  <resource>Testcat:view</resource>
+         	 <privilege>viewall</privilege>
+         	
+			
+		</testCategory>
+		
+	</mainmenu>
+
+
+
+
+	<menu>
+
+		<things>
+			<link>things/index/index</link>
+			<name>Produkty</name>
+		</things>
+		
+		
+
+		<courier>
+			<link>courier/index/index</link>
+			<name>Kurierzy</name>
+		</courier>
+
+		<sale>
+			<link>sale/index/index</link>
+			<name>Sprzedarz</name>
+		</sale>
+
+		<cart>
+			<link>cart/index/index</link>
+			<name>koszyk</name>
+		</cart>
+
+		<pay>
+			<link>pay/view/viewall</link>
+			<name>Płatności</name>
+		</pay>
+
+		<suppliers>
+			<link>suppliers/view/viewall</link>
+			<name>Dostawcy</name>
+		</suppliers>
+
+		<category>
+			<link>category/view/viewall</link>
+			<name>Kategorie</name>
+		</category>
+
+		<account>
+			<link>accounts/view/viewall</link>
+			<name>Konta</name>
+		</account>
+
+	</menu>
+
+	<connections>
+		<sale>
+			<transaction>
+				<viewlabel>
+					<courier>
+						<name>courier</name>
+						<output>kurier</output>
+					</courier>
+				</viewlabel>
+			</transaction>
+		</sale>
+	</connections>
+
+</zend-config>

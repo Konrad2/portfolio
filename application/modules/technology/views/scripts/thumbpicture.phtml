@@ -1,0 +1,83 @@
+
+<?php 
+
+/**
+ * @package Pictures
+ * @package View
+ * @param string $module Nazwa modulu.
+ * @param string $controller Nazwa kontrollera.
+ * @param string $current nazwa obecnie wy�wietlanego obrazka.
+ * @param array $icons tablica scierzki do ikon.
+ * @param array $
+ * @param int $id
+ */
+	$role = Zend_Auth::getInstance()->getStorage()->read()->getRole();
+
+
+	if  ( $role === 'admin' ) {
+ 	
+
+
+		//	if ( file_exists ( $this->current ) ) {	
+			
+				
+						echo '<ul class="thumb" >';
+						
+						die;
+						foreach ($this->icons as $PictName => $icon)	{
+					
+							//echo '<li><a href="' . $this->bigPictures[ $PictName ] .'" /><img src="' . $icon . '" /></a></li>';
+								//echo	'<li><a href="' . $icon . '"><img src="' . $icon . '" /></a></li>';
+								echo '<li>'
+                                                                        . '<a href="' . $this->bigPictures[ $PictName ] .'" /><img src="' . $icon . '" /></a>'
+                                                                        	. '<a href="'. $this->baseUrl().'/'.$this->module.'/'. $this->controller .'/deletepict/id/'.$this->id.'/pic/'. basename($icon).'">Usun</a><br/>';
+								
+								
+                                                                        if ($icon !=='main.jpg')
+							
+											echo '<a href="'.$this->baseUrl().'/'.$this->module.'/'. $this->controller .'/setasmain/id/'. $this->id . '/pic/'. basename($icon) .'">Ustaw jako etykiete</a><br/>';
+						
+                                                                 echo  '</li>';
+						
+							
+						}
+						
+					
+						echo '</ul>';
+		
+		
+	} else {
+
+
+		echo '<ul class="thumb">';
+
+		
+		
+		foreach ( $this->icons as $PictName => $icon )	{
+	
+				//echo '<li><a href="' . $this->baseUrl() . '/public/images/' . $this->module . '/' . $this->id.'/icons/'.$icon.'"><img src="'.$this->baseUrl().'/public/images/things/'.$this->id.'/icons/'.$icon.'" /></a></li>';
+				echo '<li><a href="' . $this->bigPictures[ $PictName ] .'" /><img src="' . $icon . '" /></a></li>';
+		
+		}
+	
+	
+		echo '</ul>';
+	
+	}
+	
+	?>	
+
+<script type="text/javascript">
+
+	$(function() {
+		
+		
+		//$('ul.thumb li a img').lightBox();
+		$('ul.thumb li a').lightBox();
+
+	});
+	
+</script>
+
+ 
+ 

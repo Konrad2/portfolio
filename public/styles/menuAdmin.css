@@ -1,0 +1,72 @@
+@CHARSET "UTF-8";
+
+.menuAdmin {
+	background-image: url(../images/menu_pasek.jpg);
+	background-repeat: repeat-x;
+	height: 50px;
+
+	margin-top:0;
+	margin-bottom:0px;
+	font-size:15px;
+	width:932px;
+	background-image: url(../images/menu_pasek.jpg);
+	background-repeat: repeat-x;
+
+	float:left;
+}
+
+.menuAdmin li{
+	
+	display:inline;
+	float: left;
+	width:80px;
+	padding-top:4px;
+	height:35px;
+}
+
+.menuAdmin a{
+	color: #A1FFFF;
+	text-decoration: none;
+}
+
+
+#menuAdmin_begin {
+	
+	background-image: url(../images/menu_begin.jpg);	
+	background-repeat: no-repeat;	
+	height: 50px;
+	width: 4px; 
+	float: left;
+}
+
+
+#menuAdmin_end {
+	
+	background-image: url(../images/menu_end.jpg);
+	background-repeat: x-repeat;
+	height: 50px;
+	width: 4px; 	
+	float: right;
+}
+
+
+
+
+
+
+
+
+
+/*
+#menuAdmin .navigation ul{
+	display:inline;
+	
+}
+
+#menuAdmin .navigation li{
+	
+	float: left;
+	display:inline;
+}
+*/	
+

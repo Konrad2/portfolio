@@ -1,0 +1,24 @@
+<?php
+/**
+ * @package Pictures
+ * 
+ * @param array things
+ * @paramr id int
+ * @param string mainIcon Scieżka do gównej ikony
+ * @param array bigPictures  Tablica cierzk do obrazków
+ */
+
+	//$role = Zend_Auth::getInstance()->getStorage()->read()->getRole();
+	
+	
+
+ echo '<a id="back" href="'. $this->url( array( 'action'=>'viewall') ) .'"><img class="arrow" src="'.$this->baseUrl().'/public/images/bck.jpg" alt="Powrót"></a>';
+ 
+ 
+		$t = $this->thing->toArray();
+		
+		echo '<h1>'. $t['name'] .'</h1>';
+		
+		echo '<div id="descriptionView">'. $t['description'] .'</div>';
+		
+echo '<a href="'. $this->url( array( 'action'=>'addproduct','controller'=>'Cart', 'module'=>'Cart')) .'">Dodaj</a>';

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-2"?>
+<zend-config>
+	<cart>
+		<things>things</things>
+		<sale>sale</sale>
+	</cart>
+
+	<search>
+		<view>things</view>
+		<things>category</things>
+	</search>
+
+	<category>
+		<view>things</view>
+	</category>
+
+</zend-config>

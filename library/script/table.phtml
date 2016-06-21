@@ -1,0 +1,20 @@
+<?php
+
+echo "<table>";
+				 
+				  	//$t = $this->thing->toArray();
+				
+				  	foreach ($this->whatShow as $what => $as): 
+				 
+				  	//if ($key != 'id'){
+				  		  	
+						echo"<tr>";	
+							echo '<td>'. $as .'</td>';
+							//$out =  empty( $this->thing[ $what ] ) ? 'b.d':$item; 
+							echo '<td>'.$this->escape( $this->thing[ $what ] ).'</td>';
+						echo"</tr>";
+				  //	}
+				  	
+				   endforeach;
+				   
+echo "</table>"; 

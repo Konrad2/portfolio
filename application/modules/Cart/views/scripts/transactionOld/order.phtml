@@ -1,0 +1,38 @@
+<div id=order">
+    <h3>Realizacja zamówienia</h3>
+<?php 
+echo $this->form;
+/*
+foreach ($this->products as $p)
+{
+		echo $this->escape($p->name).' '. $this->escape($p->price) .'<br/>';
+}
+*/
+//echo '<a href="'.$this->url(array('module'=>'sale','controller'=>'transaction','action'=>'order')).'">dalej</a>';
+
+if (isset($this->products))
+{
+	foreach ($this->products as $p)
+	{
+		echo $this->escape($p->name).' '. $this->escape($p->price) .'<br/>';
+	}
+	echo '<br />';
+}
+else
+	echo "basket not set";
+
+
+if (isset($this->data))
+{
+	foreach ($this->data as $d)
+	{
+		
+			echo $d.'<br />';
+	}
+	echo '<br />';
+}
+else
+	echo "data not set";
+?>
+
+</div>

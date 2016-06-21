@@ -1,0 +1,17 @@
+<?php
+
+//echo $this->action('viewall', 'management', 'Comments' );
+	
+
+if ( ! empty( $this->connecting ) )
+	
+		foreach ( $this->connecting as $m ) {
+				
+		//	echo "view one jestem</br>";
+			echo $this->action('viewlabel',
+								'management',
+								$m,
+								array('param' => $this->id) );
+		}
+		
+?>

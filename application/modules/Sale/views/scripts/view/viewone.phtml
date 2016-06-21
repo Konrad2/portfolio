@@ -1,0 +1,38 @@
+<?php
+
+//Wy��wietlanie po���czonych modu��w
+
+
+	if (!empty($this->mod))
+		foreach($this->mod as $m){				
+			
+			echo $this->action('viewlabel', 'view',	$m,	array('id' => $this->id) );		
+		}
+
+			
+	
+///	echo 'Wartość zamowienia ' . $this->thing->cena . '<br/>';
+	
+	echo 'Data zamówienia' . $this->thing->data . '<br/>';
+	
+ //Wy�wietlanie wiersza
+/*	echo "<table>";	 
+	
+	  	$t = $this->thing->toArray();
+	
+	  	foreach ($t as $key => $item): 
+	 
+			echo"<tr>";	
+				echo '<td>'. $key .'</td>';
+				echo '<td>'. $item .'</td>';
+			echo"</tr>";
+		
+	   endforeach;
+	   
+	echo "</table>"; 
+	*/
+	
+	echo $this->action('one2','View','Sale', array ('id' => $this->id));
+	
+?>
+ 
